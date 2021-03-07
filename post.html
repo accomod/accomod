@@ -3,23 +3,18 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Tìm kiếm | EasyAccomod</title>
+    <title>EasyAccomod</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="css/PostDetail.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" type="text/css" href="css/Site.css" />
-    <link rel="stylesheet" type="text/css" href="css/PostList.css" />
 </head>
 <body class="bg-white">
-    <div id="notification-show" class="container bg-light position-fixed d-none ">
-        <h4 class="mt-2">Thông báo</h4>
-        <div id="notification-body">
-
-        </div>
-    </div>
     <div id="header" class="container-fluid fixed-top px-1" style="padding: 0;user-select:none; background: white; border-bottom: 1px solid lightgrey">
         <div class="row h-100" style="margin: 0">
-            <div id="side-nav" class="fa fa-bars col-1 ml-2 align-self-center"></div>
+            <div id="side-nav" class="fa fa-bars col-1 ml-2 align-self-center" onclick="ToggleSideNav()"></div>
 
             <div id="logo-container" class="col-5 col-sm-2  align-self-center text-left text-sm-center">
                 <a href="index.html" id="logo">
@@ -29,108 +24,209 @@
             <div id="slide-menu">
                 <ul class="pl-3">
 
-                    <li><a href="search.html">Tìm kiếm nâng cao</a></li>
+                    <li><a href="manager.html">Quản lý</a></li>
 
+                        <li><a href="login.html">Đăng nhập</a></li>
                 </ul>
             </div>
 
             <div class="col-1 col-sm-5 offset-lg-2 offset-sm-0 align-self-center" id="top-collapse">
                 <ul id="acc-menu" class="nav row justify-content-end">
 
-                    <li class="col-4 align-self-center"><a href="search.html">Tìm kiếm nâng cao</a></li>
+                    <li class="col-4 align-self-center"><a href="manager.html">Quản lý</a></li>
 
-                        <li class="col-4 align-self-center" style="white-space: nowrap; display: inline-block;">
-                            <a href="#" role="button" id="username-display" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position: absolute ; top: -10px;">
-                                <i class="far fa-user mr-2" style="position: relative;top:0px"></i>
-                                Nguyễn Văn Hùng
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="username-display">
-                                <a href="/EditInfo" class="dropdown-item">Chỉnh sửa thông tin</a>
-                                        <a class="dropdown-item" href='/UserHomePage/6'>Trang cá nhân</a>
-                                        <a class="dropdown-item" href="/HostManager">Bài viết đã đăng</a>
-
-                                <a class="dropdown-item" href="/Account/SignOut">Đăng xuất</a>
-
-                            </div>
-
-                        </li>
+                        <li class="col-4 align-self-center"><a href="login.html">Đăng nhập</a></li>
                 </ul>
-                    <div class="show-when-collapse" style="display: none;position: absolute; top:-10px; right: 10px;">
-                        <a href="#" role="button" id="mini-username-display" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="far fa-user mr-2 "></i>
-
-                        </a>
-                    
-                    </div>
             </div>
             <div class="col-4 col-sm-3 offset-0 offset-sm-2 offset-lg-0  align-self-center pr-3" style="padding-left: 0;">
                 <ul id="navbar-user" class="nav row justify-content-end mr-3 mr-sm-0">
 
-                        <li class="col-3 col-sm-2 text-center align-self-center">
-                            <a href="/" class="text-decoration-none invisible">
-                                <i class="far fa-heart"></i>
-                            </a>
-                        </li>
 
-                        <li class="col-4 col-sm-4 text-center align-self-center" style="padding:0!important; user-select: none; cursor: pointer;">
-                            <a id="notification-bell" style="width:100%; height:100%">
-                                <i class="far fa-bell"></i>
-                            </a>
-                        </li>
                                                 <li class="col-5 col-sm-6 col-lg-4 align-self-center  ">
                                 <button class="btn btn-sm text-nowrap" data-toggle="modal" data-target="#exampleModal" id="btn-dang-tin">Đăng bài</button>
                             </li>
 
-                </ul>            </div>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-xl"></div></div>
-    
 
+<div class="post-details-container container rounded border mx-auto my-5 row">
+    <div class="post-details col-12 col-lg-8 h-100">
 
-
-<div class="container w-100 rounded border mx-auto my-5">
-    <h4><u>Tìm kiếm</u></h4>
-    
-    <div class="container posts-container d-flex justify-content-around flex-wrap " style="min-height:300px">
-                <div class="post-wrapper">
-                    <div class="post-image-thumb" style="background: url('Images/2020122807390306.jpg'); background-size: 100% 100%"></div>
-                    <div class="post-info">
-                    <div class="post-top-part">
-                        <span class="post-title"> <a href="post.html">Cho thuê nhà cao cấp 144 Xuân Thuỷ</a></span>
-
-                        <span class="post-area">45m2</span>
-                        <span class="post-price">5.000.000đ/th&#225;ng</span>
-                    </div>
-                    <span class="post-user">Nguyễn Văn Hùng</span>
-                    <span class="post-datetime">28/12/2020 07:39:04 </span>
-
-                    <i class="far fa-star text-warning invisible"></i>
-                    <span class="post-rating invisible">7.5</span>
-                    <i class="fas fa-heart text-danger favourite-button" data-id="29" data-active="true"></i>
+        <div class="row post-images bg-dark mx-3 mt-3 carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="Images/2020122819212206.jpg">
                 </div>
-                </div>
-                <div class="post-wrapper">
-                    <div class="post-image-thumb" style="background: url('Images/2020122808172206.jpg'); background-size: 100% 100%"></div>
-                    <div class="post-info">
-                    <div class="post-top-part">
-                        <span class="post-title"> <a href="post.html">Cho thuê nhà trọ số 37 ngõ 20 Hồ Tùng Mậu</a></span>
+            </div>
+            <a class="carousel-control-prev" href="#" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div>
 
-                        <span class="post-area">20m2</span>
-                        <span class="post-price">2.000.000đ/tháng</span>
-                    </div>
-                    <span class="post-user">Nguyễn Văn Hùng</span>
-                    <span class="post-datetime">28/12/2020 08:17:23 </span>
+        <div class="row reaction px-3 mt-2">
+            <div class="col-4 col-lg-8" style="white-space:nowrap">Lượt xem: 6</div>
+            <div class="col-4 col-lg-2 text-right invisible">
+                <i class="far fa-star text-warning"></i>
+                <span class="post-rating">7.5</span>
+            </div>
+            <div class="col-4 col-lg-2 text-right invisible">
+                <i class="fas fa-heart text-danger"></i>
+                <span>345</span>
+            </div>
+        </div>
+        <div class="row post-details-info mt-2 px-3">
+            <h5 class="post-details-title">Cho thuê nhà trọ số nhà 37 ngõ 20 Hô Tùng Mậu</h5>
+            <p class="post-details-address">số nh37 37 ngõ 20 Hồ Tùng Mậu - Phường Mai Dịch - Quận Cầu Giấy - Hà Nội</p>
 
-                    <i class="far fa-star text-warning invisible"></i>
-                    <span class="post-rating invisible">7.5</span>
-                    <i class="far fa-heart text-danger favourite-button" data-id="32" data-active="true"></i>
+
+        </div>
+        <h4 class="post-big-price">2.000.000đ/tháng</h4>
+        <h4>Thông tin chính</h4>
+
+        <table class="table table-sm table-borderless">
+            <tbody>
+                <tr>
+                    <td>Giá</td>
+                    <td>: 2.000.000đ/tháng</td>
+                </tr>
+                <tr>
+                    <td>Số phòng</td>
+                    <td>: 1</td>
+                </tr>
+                <tr>
+                    <td>Diện tích</td>
+                    <td>: 20 m2</td>
+                </tr>
+                <tr>
+                    <td>Giá điện</td>
+                    <td>: Giá; dân</td>
+                </tr>
+                <tr>
+                    <td>Giá nước</td>
+                    <td>: Giá dân</td>
+                </tr>
+                    <tr>
+
+                        <td>Điều hoà</td>
+                        <td>: Không</td>
+                    </tr>
+                                    <tr>
+
+                        <td>Nóng lạnh</td>
+                        <td>: Không</td>
+                    </tr>
+                                    <tr>
+
+                        <td>Bếp</td>
+                        <td>: Có</td>
+                    </tr>
+                                    <tr>
+
+                        <td>Ban công</td>
+                        <td>: Không</td>
+                    </tr>
+                                    <tr>
+
+                        <td>Vệ sinh khép kín</td>
+                        <td>: Có</td>
+                    </tr>
+                                    <tr>
+
+                        <td>Chung chủ</td>
+                        <td>: Không</td>
+                    </tr>
+            </tbody>
+        </table>
+
+
+
+        <h4>Mô tả</h4>
+        <div class="post-description">Cho thuê nhà trọ số nhà 37 ngõ 20 Hồ Tùng Mậu </div>
+
+        <hr>
+        <div class="post-details-datetime text-right font-italic">28/12/2020 08:17:23</div>
+        <h4>Người đăng</h4>
+        <div class="row">
+            <div class="col-12"><i class="fa fa-user" style="font-size: 20px;"></i> <span class="host-name">Nguyễn Văn Hùng</span></div>
+
+        </div>
+        <div class="row mt-1">
+            <div class="col-12">
+                <span>
+                    <i class="fa fa-phone"></i>
+                    <a class="text-decoration-none text-dark" href="tel:0999999999">0999999999</a>
+                </span>
+            </div>
+            <div class="col-12">
+                <span>
+                    <i class="fa fa-envelope"></i>
+
+                    <a class="text-decoration-none text-dark" href="mailto:nmhung0519">nmhung0519</a>
+                </span>
+            </div>
+        </div>
+        <hr>
+       
+        <h4>Bình luận</h4>
+
+        <div class="comment-post-area">
+            <div class="row mx-2 mb-2">
+                    <span style="margin: 10px 0">
+                        <a href="/Account/SignOut">Đăng nhập lại </a>
+                        với tài khoản người thuê để có thể bình luận
+                    </span>
+            </div>
+            <!--------->
+                <div class="comment rounded my-3 p-2">
+                    <h6>Nguyễn Văn Hùng</h6>
+                    <span style="font-size: 14px; color: grey">28/12/2020 19:18:38</span>
+                    <span>bài viết hay</span>
                 </div>
+        </div>
+
+    </div>
+
+
+    <div class="contact-info col-4" style="position: relative;">
+        <div class="container mt-3 rounded border py-3" style="position: sticky; top: 55px;">
+            <div class="row">
+                <div class="col-3 text-center"><i class="fa fa-user" style="font-size: 20px;"></i></div>
+                <div class="col-9"><span class="host-name">Nguyễn Văn a</span></div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <span>
+                        <i class="fa fa-phone"></i>
+                        <a class="text-decoration-none text-dark" href="tel:0999999999">0999999999</a>
+                    </span>
                 </div>
+                <div class="col-12">
+                    <span>
+                        <i class="fa fa-envelope"></i>
+                        <a class="text-decoration-none text-dark" href="mailto:easyaccomod@gmail.com"> easyaccomod@gmail.com</a>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-    <div class="container-fluid w-100" id="footer" style="background-color: #e9e9e9;">
+<hr>
+
+<div class="container-fluid w-100" id="footer" style="background-color: #e9e9e9;">
         <div class="row px-3 px-lg-2 py-2">
             <div class="col-12 col-lg-9 order-lg-2">
                 <ul class="row text-center p-2" style="list-style-type: none;">
